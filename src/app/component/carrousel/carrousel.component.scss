@@ -1,0 +1,60 @@
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-229%); } /* Ajusta para la cantidad de elementos */
+  }
+
+  
+
+  
+
+  .carousel-inner {
+    animation: scroll 20s linear infinite; /* Ajusta la duración si es necesario */
+    display: flex;
+  }
+
+  @media screen and (max-width: 768px) {
+    .carousel-inner{
+        animation: scroll_tablet 20s linear infinite; 
+    }
+    @keyframes scroll_tablet {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-307%); } /* Ajusta para la cantidad de elementos */
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .carousel-inner{
+        animation: scroll_mobile 20s linear infinite; 
+    }
+
+    @keyframes scroll_mobile {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-460%); } /* Ajusta para la cantidad de elementos */
+    }
+  }
+
+  .carousel-item {
+    flex-shrink: 0;    
+  }
+
+  @media screen and (max-width: 640px) {
+    .carousel-item{
+        width: 50%;
+    }
+  }
+
+  .carousel-item:hover p{
+    transition: .3s all ease-in-out;
+    position: relative;
+    color: yellow;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    background-color: rgb(44, 44, 44, .7);
+    top: -10px;
+    padding-block: 5px;
+  }
+
+  /* Pausa la animación al hacer hover en cualquier elemento */
+  .carousel-inner:hover {
+    animation-play-state: paused;
+  }
