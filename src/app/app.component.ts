@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HexagonoComponent } from './component/hexagono/hexagono.component';
 import { CarrouselComponent } from './component/carrousel/carrousel.component';
@@ -10,7 +10,8 @@ import { CarrouselComponent } from './component/carrousel/carrousel.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    CarrouselComponent
+    CarrouselComponent,
+    NgClass
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit{
 
   skills = [
     {
-      image: "assets/images/item-1.jpg",
+      image: "assets/images/cerrajeria-24-hrs.jpg",
       text: "Cerrajeria a domicilio 24 horas"
     },
     {
@@ -28,7 +29,7 @@ export class AppComponent implements OnInit{
       text: "apertura de vehículos y puertas"
     },
     {
-      image: "assets/images/item-3.webp",
+      image: "assets/images/item-3.jpg",
       text: "Cerraduras blindadas y multilock viso"
     },
     {
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit{
       text: "Puertas de vidrio"
     },
     {
-      image: "assets/images/item-6.webp",
+      image: "assets/images/item-6.jpg",
       text: "Brazos hidráulicos"
     },
     {
@@ -52,12 +53,14 @@ export class AppComponent implements OnInit{
       text: "Copias de llaves con chip todos los modelos"
     },
     {
-      image: "assets/images/item-9.webp",
+      image: "assets/images/item-9.jpg",
       text: "Reparación de cerraduras y mantenimiento de multilock viso y otros sistemas bancarios"
     },
   ]
 
   repeatItems : any[] = [];
+
+  callMe: boolean = false;
 
   ngOnInit(): void {
     for (let index = 0; index < 4; index++) {
@@ -67,5 +70,13 @@ export class AppComponent implements OnInit{
       }
       this.repeatItems.push(temp)      
     }
+  }
+
+  clickCallMe(){
+    this.callMe = true;
+  }
+
+  closedCallMe(){
+    this.callMe = false;
   }
 }
